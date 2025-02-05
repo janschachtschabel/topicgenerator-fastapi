@@ -21,10 +21,7 @@ This project is a FastAPI application that generates a structured topic tree bas
 
 1. **Clone the Repository**
    
-   Ensure you are in the correct directory:
-   ```bash
-   cd c:/Users/jan/staging/Windsurf/topicgenerator-fast-api
-   ```
+   Ensure you are in the correct directory
 
 2. **Create and Configure the .env File**
    
