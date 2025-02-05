@@ -7,3 +7,6 @@ pydantic
 # API and networking
 backoff
 python-dotenv
+
+# Fix
+httpx==0.27.2
