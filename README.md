@@ -1,80 +1,64 @@
-# Topic Generator FastAPI
+# topic-tree-generator / Themenbaum-Generator
 
-## Overview
+This project is a fastAPI implementation of Jan Schachtschabel's "Themenbaum-Generator"-idea.
 
-This project is a FastAPI application that generates a structured topic tree based on user-provided parameters. It integrates with the OpenAI API to generate content dynamically, and leverages Pydantic models to ensure data integrity and validation.
+The following Jira issues and Confluence articles are relevant to this project:
 
-## Features
+- https://edu-sharing.atlassian.net/browse/GEN-101
+- https://edu-sharing.atlassian.net/browse/GEN-102
+- [KI-Workflow - Themenbaumstruktur mit KI generieren](https://edu-sharing.atlassian.net/wiki/spaces/ESS/pages/971866113/KI-Workflow+-+Themenbaumstruktur+mit+KI+generieren)
 
-- **Dynamic Topic Tree Generation:** Generates a hierarchical topic tree based on the provided theme and numerical parameters (main topics, subtopics, and curriculum topics).
-- **Flexible Request Model:** Accepts parameters such as theme, number of topics, and optional URIs for discipline and educational context.
-- **Structured Output:** Returns a JSON object representing the complete topic tree, including metadata and nested collections.
-- **Integration with OpenAI API:** Utilizes OpenAI models to generate structured text for topic tree content.
+## Getting started
 
-## Project Structure
+This project requires **Python 3.13**.
 
-- `app.py`: The main FastAPI application. Contains the API endpoints, data models (using Pydantic), and functions for processing the topic tree generation.
-- `.env`: Environment file that should contain your `OPENAI_API_KEY`, among other configuration variables.
-- `requirements.txt`: Lists the Python dependencies required to run the application.
+The dependencies of this project are managed by [uv](https://docs.astral.sh/uv/).
+Therefore, before trying to run this project,
+please make sure that
+you [have installed the most recent version of uv](https://docs.astral.sh/uv/getting-started/installation/).
 
-## Setup Instructions
+### Setting up the local development environment in your IDE
 
-1. **Clone the Repository**
-   
-   Ensure you are in the correct directory
+To get started, you can run the following commands in your shell (after you have cloned this `git` repository)
+**from this project's root directory**:
 
-2. **Create and Configure the .env File**
-   
-   Create a `.env` file if it does not exist, and add your OpenAI API key:
-   ```
-   OPENAI_API_KEY=your_api_key_here
-   ```
+```shell
+# create the virtual environment:
+uv venv
+# you should now be able to see a .venv directory in your project's root directory.
 
-3. **Install Dependencies**
-   
-   Install the required packages:
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-4. **Run the Application**
-   
-   Start the FastAPI server using uvicorn:
-   ```bash
-   uvicorn app:app --reload
-   ```
-   The API will be available at `http://localhost:8000`.
-
-## API Endpoints
-
-- **`GET /`**: Basic endpoint to check if the service is running.
-- **`POST /generate-topic-tree`**: Generates a topic tree based on the provided JSON payload. The expected payload matches the `TopicTreeRequest` model, which includes fields like `theme`, `num_main_topics`, `num_subtopics`, `num_curriculum_topics`, and optional URIs.
-
-### Example Request
-
-```json
-{
-  "theme": "Physik in Anlehnung an die Lehrpläne der Sekundarstufe 2",
-  "num_main_topics": 5,
-  "num_subtopics": 3,
-  "num_curriculum_topics": 2,
-  "include_general_topic": true,
-  "include_methodology_topic": true,
-  "discipline_uri": "http://w3id.org/openeduhub/vocabs/discipline/460",
-  "educational_context_uri": "http://w3id.org/openeduhub/vocabs/educationalContext/sekundarstufe_2",
-  "model": "gpt-4o-mini"
-}
+# install the project dependencies according to the "pyproject.toml"- / "uv.lock"-file:
+uv sync
 ```
 
-## Error Handling
+#### additional hints
 
-The application uses FastAPI's built-in error handling along with custom exception handling to manage validation errors, OpenAI API errors, and other runtime issues. HTTP status codes and clear error messages are returned on failure.
+If your system OS does not provide an up-to-date Python version,
+you can use `uv`
+to [install specific Python versions ](https://docs.astral.sh/uv/guides/install-python/#installing-a-specific-version)
+before running the above commands.
 
-## Development and Contribution
+PyCharm supports `uv` for package and environment
+management [since PyCharm 2024.3.2](https://www.jetbrains.com/pycharm/whatsnew/#page__content-package-management).
 
-- **Code Maintenance:** The project is built with modularity in mind. Endpoints, models, and utility functions are well-organized within `app.py`.
-- **Contributions:** Contributions are welcome! Please fork the repository and submit pull requests. For major changes, consider opening an issue first to discuss the modifications.
+After opening the project in PyCharm,
+you should be able to see
+a [PyCharm fastAPI runConfiguration](https://www.jetbrains.com/help/pycharm/fastapi-project.html) for the `main.py` in
+the "run"-view.
+*(see also: [PyCharm Run/debug configurations](https://www.jetbrains.com/help/pycharm/fastapi-project.html))*
 
-## License
+## Contributing
 
-This project is open source and available under the Apache-2.0 License.
+If you want to contribute to this project, your commits should pass the GitLab CI/CD pipelines.
+Merge Requests will automatically display the results of the pipeline run
+and give you an overview if the code quality has changed.
+
+Since this project uses [ruff](https://docs.astral.sh/ruff/) for linting and code formatting,
+you can run the following commands locally to make sure that your commits pass the pipelines:
+
+```shell
+ruff check   # Lint all files in the current directory.
+ruff format  # Format all files in the current directory.
+```
+
+***
