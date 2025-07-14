@@ -26,6 +26,3 @@
   - **Zeilen 36-41**: Die Anweisungen zur `BILDUNGSSTUFE` wurden vereinfacht und der Hinweis auf die automatische Anpassung verdeutlicht.
   - **Zeilen 42-45**: Die Regel zur `ANZAHL DER KATEGORIEN` wurde präzisiert, um eine natürliche Struktur zu fördern.
   - **Fix**: Explizite JSON-Formatierungsbeispiele und die Fehlerbehandlungs-Sektion wurden entfernt, um den Prompt zu straffen und die Anweisungen auf die Kernregeln zu fokussieren.
-
-- **`pyproject.toml`**:
-  - **Zeile 7**: Die Anforderung an die Python-Version (`requires-python`) wurde von `">=3.13"` auf `">=3.12"` geändert, um die Kompatibilität mit der Systemumgebung sicherzustellen.
