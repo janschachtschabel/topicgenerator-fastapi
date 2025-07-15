@@ -8,6 +8,9 @@
 
 ### Geändert
 
+- **`src/DTOs/topic_tree_request.py`**:
+  - Das Standard-LLM-Modell wurde von `gpt-4o-mini` auf `gpt-4.1-mini` geändert.
+
 - **`src/structured_text_helper.py`**:
   - **Zeile 7**: `AsyncOpenAI` wurde importiert, um asynchrone API-Anfragen zu ermöglichen.
   - **Zeilen 81-132**: Die neue asynchrone Funktion `generate_structured_text_async` wurde implementiert. Sie ist eine asynchrone Version der bestehenden `generate_structured_text`-Funktion und verwendet `await`, um auf die Antwort der OpenAI-API zu warten.
@@ -26,3 +29,6 @@
   - **Zeilen 36-41**: Die Anweisungen zur `BILDUNGSSTUFE` wurden vereinfacht und der Hinweis auf die automatische Anpassung verdeutlicht.
   - **Zeilen 42-45**: Die Regel zur `ANZAHL DER KATEGORIEN` wurde präzisiert, um eine natürliche Struktur zu fördern.
   - **Fix**: Explizite JSON-Formatierungsbeispiele und die Fehlerbehandlungs-Sektion wurden entfernt, um den Prompt zu straffen und die Anweisungen auf die Kernregeln zu fokussieren.
+
+- **`pyproject.toml`**:
+  - **Zeile 7**: Die Anforderung an die Python-Version (`requires-python`) wurde von `">=3.13"` auf `">=3.12"` geändert, um die Kompatibilität mit der Systemumgebung sicherzustellen.

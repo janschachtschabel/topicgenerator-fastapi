@@ -47,4 +47,4 @@ class TopicTreeRequest(BaseModel):
         ],
     )
 
-    model: str = Field("gpt-4o-mini", description="Das zu verwendende OpenAI-Sprachmodell", examples=["gpt-4o-mini"])
+    model: str = Field("gpt-4.1-mini", description="Das zu verwendende OpenAI-Sprachmodell", examples=["gpt-4.1-mini"])
